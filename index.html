@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth" >
+<html lang="de" class="scroll-smooth polyfill" >
   <head>
     <!-- Google tag (gtag.js) -->
 
@@ -47,7 +47,7 @@
 
     <!-- CallToAction -->
     <section class="hero">
-        <div>
+        <div class="center">
           <p> MACH <span>HEUTE</span> <br>DEN <SPAN>ERSTEN SCHRITT </SPAN>ZU DEINER</p>
           <a href="#finanziellefreiheit">
           <h1>FINANZIELLEN FREIHEIT</h1></div>
@@ -393,7 +393,10 @@ function remove() {
   var element = document.getElementById('mobilemenu');
   element.classList.remove('active');
 }
+import smoothscroll from 'smoothscroll-polyfill';
 
+// kick off the polyfill!
+smoothscroll.polyfill();
 </script>
 
 
