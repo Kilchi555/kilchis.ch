@@ -12,7 +12,6 @@ h1 {
     padding: 5%;
     color:white;
     background-color: #32CD32;
-   
     border-radius: 20px;
 }
 
@@ -47,10 +46,6 @@ h3 span {
 color: #32CD32;
 }
 
-li {
-    padding: 5px;
-}
-
 .navbar {
     top: 0;
     position: sticky;
@@ -59,10 +54,9 @@ li {
     background-color: white;
     z-index: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
-  
+    align-items: center;
+    justify-content: space-between;
 }
 
 .hero {
@@ -70,7 +64,6 @@ li {
     text-align: center;
     align-items: center;
     padding: 5%;
-    
     border-radius: 20px;
 }
 
@@ -79,7 +72,6 @@ li {
     color: black;
     font-weight: 900;
     z-index: 2;
- 
     padding-bottom: 5%;
 }
 
@@ -101,36 +93,19 @@ header {
     z-index: 1;
 }
 
-#logo {
-    color: #32CD32;
-    flex: auto;
-    float: left;
-    font-size: clamp(1.75rem,4vw,3rem);
-    z-index: 1;
+.logo {
+    height: 60px;
     cursor: pointer;
-    text-decoration: none;
-    padding: 1%;
+    padding: 3%;
+    
 }
 
 header a span {
     color: black;
 }
 
-header li a {
-    text-align: justify;
-    float: right;
-}
-
-nav {
-    float: right;
-    overflow: hidden;
-    position: relative;
-}
-
-.nav-links {
-  
-    padding: 0;
-    float: right;
+.toggle {
+    padding: 10px;
 }
 
 #mobilemenu {
@@ -142,14 +117,13 @@ nav {
     position: relative;
     top: 100%;
     margin-top: 10px;
-    
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     background-color: white;
     border-radius: 10px;
     text-decoration: none;
-    float: right;
+   
    
 }
 
@@ -157,7 +131,6 @@ nav {
     right: 0;
     display: grid;
     color: black;
-    float: right;
     font-size: clamp(1rem,3vw,2rem);
     padding: 20px 20px;
     text-decoration: none;
@@ -171,13 +144,13 @@ nav {
     
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
     .desktop-menu {
         display: none;
     }
 }
 
-@media (min-width: 851px) {
+@media (min-width: 1001px) {
     .mobiletoggle{
         display: none;
     }
@@ -186,22 +159,15 @@ nav {
     }
 }
 
-.nav-links li {
-    list-style-type: none;
-    display: inline-block;
-}
-
-.nav-links li a {
+.desktop-menu a {
     color: black;
     text-decoration: none;
     padding-right: 20px;
-    transition: background-color 0.3s;
-    float: right;
-    border-radius: 30px;
     font-size: clamp(0.9rem,1.75vw,1.25rem);
+    justify-content: flex-end;
 }
 
-.nav-links a:hover {
+.desktop-menu a:hover {
     color: #32CD32;
     border-radius: 30px;
 }
@@ -210,10 +176,6 @@ nav {
     background-color: #32CD32;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.toggle {
-    padding: 5px;
 }
 
 .introduction {
@@ -333,6 +295,10 @@ hr {
         scroll-margin: 110px;
     }
 
+    #uebermich {
+        scroll-margin: 70px;
+    }
+
     .ml-onclick-form {
        
         padding: 3%;
@@ -358,4 +324,47 @@ hr {
         justify-content: center;
         align-items: center;
         display: flex;
+    }
+
+    .about-me {
+        padding: 10%;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .portrait {
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    footer {
+        bottom: 0;
+        width: 100%;
+        box-shadow: 0 4px 8px 0px grey;
+        background-color: white;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+    }
+
+    .nav-links-footer a {
+        color: black;
+        list-style-type: none;
+    }
+
+    .nav-links-footer li {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .nav-links-footer a:hover {
+        color: #32CD32;
+    }
+    .nav-links-footer {
+        list-style-type: none;
     }
