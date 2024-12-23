@@ -1,0 +1,16 @@
+#robots.txt for kilchis.ch
+
+#Block all web crawlers from accessing sensitive directories
+
+User-agent:*
+Disallow: /admin/
+Disallow: /login/
+Disallow: /tmp/
+Disallow: /private/
+
+#Allow all other content to be crawled
+User-agent:*
+Allow: /
+
+# Optional: Sitemap location
+Sitemap: https://www.kilchis.ch/sitemap.xml
