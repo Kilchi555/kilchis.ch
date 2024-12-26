@@ -352,7 +352,8 @@ hr {
     }
 
     footer li {
-        padding-bottom: 15px;
+        padding-bottom: 20px;
+        text-align: center;
     }
 
     .nav-links-footer a {
