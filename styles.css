@@ -349,6 +349,7 @@ hr {
         border-radius: 5px;
         padding: 3%;
         text-align: center;
+        text-align: -webkit-center;
     }
 
     footer li {
