@@ -463,7 +463,7 @@
           <br><br>
           <button type="submit">Berechnen</button>
       </form>
-      <h2>Ergebnis</h2>
+  
       <p id="result"></p>
   
       <script>
@@ -495,6 +495,108 @@
       </script>
       </div>
       <!-- Inflationsrechner Ende-->
+
+      <!-- Potenzialrechner-->
+      <div onload="berechnen()">
+        <div>
+          <h2>Finanzen - Potenzial - Rechner</h2>
+          <div>
+            <div>
+                <div>
+                <div class="content">Berechne dein finanzielles Potenzial bei einer Rendite von 7%.</div>
+                <label for="start">Startbetrag</label>
+                <input type="number" id="start" placeholder="Startbetrag" required />
+                <label for="monat">Monatlicher Betrag</label>
+                <input type="number" id="monat" placeholder="Monatlicher Betrag" required />
+                <label for="laufzeit">Laufzeit</label>
+                <input type="number" id="laufzeit" placeholder="Laufzeit" required />
+              </div>
+              <table>
+                <tbody>
+                    <tr>
+                        <td>Erspartes Kapital</td>
+                        <td class="number"> CHF <span id="spar"></span>.-</td>
+                    </tr>
+                    <tr>
+                      <td>Angehäufte Zinsen</td>
+                      <td class="number">CHF <span id="zinsen"></span>.-</td>
+                  </tr>
+                  <tr>
+                    <td>Totales Kapital</td>
+                    <td class="number">CHF <span id="total"></span>.-</td>
+                </tr>
+                </tbody>
+              </table>
+                <div>
+                  <button id="berechnenButton">Kapital berechnen</button>
+                </div>
+              
+          </div>
+      </body>
+      <script>
+        document.getElementById('berechnenButton').addEventListener('click', function() {
+            berechnen();
+        });
+        
+        document.getElementById('start').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                berechnen();
+            }
+          });
+            document.getElementById('monat').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                berechnen();
+            }
+          });
+            document.getElementById('laufzeit').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                berechnen();
+            }
+        });
+        
+        function berechnen() {
+            var start = document.getElementById('start').value;
+            var monat = document.getElementById('monat').value;
+            var laufzeit = document.getElementById('laufzeit').value;
+            var spar = 0;
+            
+            
+                var start = parseFloat(start);
+                var monat = parseFloat(monat);
+                var laufzeit = parseFloat(laufzeit);
+                if (!isNaN(start) && !isNaN(monat) && !isNaN(laufzeit)) {
+                    var spar = start + (monat * laufzeit * 12);
+                } else {
+                  input.textContent = 'Invalid input. Please enter a valid number';
+                }
+            
+            var sparTotal = spar.toLocaleString('de-CH');  
+            document.getElementById("spar").innerHTML = sparTotal;
+    
+            var laufzeit = document.getElementById('laufzeit').value;
+            var total = 0;
+            if (laufzeit === 1){
+              var total = Math.round(start + (monat * 12) * 1.07);
+            }
+            else {
+              var total = start + (monat * 12) * 1.07;
+              for (let i = 2; i <= laufzeit; i++) {
+                total = Math.round((total + (monat * 12)) * 1.07);
+            }
+            }
+            var zinsen = total - spar;
+            
+            var totalTotal = total.toLocaleString('de-CH');  
+            document.getElementById("total").innerHTML = totalTotal;
+          
+            var zinsenTotal = zinsen.toLocaleString('de-CH'); 
+            document.getElementById("zinsen").innerHTML = zinsenTotal;
+    
+        }
+        
+        </script>
+        </div>
+        <!-- Potenzialrechner Ende-->
     
     <!--über mich-->
     <div class="container">
