@@ -299,8 +299,8 @@ hr {
         scroll-margin: 70px;
     }
 
-    .ml-onclick-form {
-       
+    .budgetplanung {
+      
         padding: 3%;
         border: 2px solid #32CD32;
         border-radius: 10px;
@@ -313,7 +313,7 @@ hr {
         
     }
 
-    .ml-onclick-form:hover {
+    .budgetplanung:hover {
         background-color: #32CD32;
         cursor: pointer;
         color: white;
