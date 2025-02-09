@@ -373,3 +373,66 @@ hr {
     footer img {
         margin-left: -10px;
     }
+
+
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        border: 1px solid #e1e1e1;
+    }
+    
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+        background: #2980b9;
+    }
+    
+    p#result {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: #27ae60;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        form {
+            padding: 15px;
+        }
+    
+        button {
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
