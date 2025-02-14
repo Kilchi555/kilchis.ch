@@ -279,7 +279,7 @@
    </div>
 </div>
 <div class="budget-button">
-  <a class="budgetplanung" class="button" href="subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
+  <a class="budgetplanung" class="button" href="https://subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
 </div>
     <!-- BudgetAnwenden -->
 
@@ -338,7 +338,7 @@
        </div>
  </div>
  <div class="budget-button">
-  <a class="budgetplanung" class="button" href="subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
+  <a class="budgetplanung" class="button" href="https://subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
 </div>
      <!-- BudgetOptimieren -->
 
@@ -396,7 +396,7 @@
      </div>
 </div>
 <div class="budget-button">
-  <a class="budgetplanung" class="button" href="subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
+  <a class="budgetplanung" class="button" href="https://subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
 </div>
     <!-- BudgetAutomatisieren-->
 
@@ -445,15 +445,12 @@
           Inflation ist ein natürlicher Bestandteil der Wirtschaft und notwendig für gesundes Wachstum, kann aber die Kaufkraft deines Geldes verringern. Während Zentralbanken die Inflation steuern, liegt es an jedem Einzelnen, durch kluge Investitionen sein Vermögen zu schützen und langfristig zu vermehren.</div>
      </div>
 </div>
-<div class="budget-button">
-  <a class="budgetplanung" class="button" href="subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
-</div>
     <!-- Inflation Ende-->
 
     <!-- Inflationsrechner-->
     <div>
       <h2>Inflationsrechner Schweiz</h2>
-      <div class="content">Berechne den heutigen Wert eines Betrages basierend auf der <b>durchschnittlichen jährlichen Inflation von 1%.</b></div>
+      <div class="content">Berechne den heutigen Wert eines Betrages, den du damals durch harte Arbeit und wertvolle Zeit erarbeitet hast, basierend auf der <b>durchschnittlichen jährlichen Inflation von 1%.</b></div>
       <form id="inflationForm">
           <label for="year">Jahr (ab Jahr 1900):</label>
           <input type="number" id="year" name="year" min="1900" max="2024" required>
@@ -496,21 +493,29 @@
       </div>
       <!-- Inflationsrechner Ende-->
 
+      <div class="budget-button">
+        <a class="budgetplanung" class="button" href="https://subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
+      </div>
+      <div>
+        <img class="icon" src="arrow.svg" alt="inflation berechnen">
+     </div>
       <!-- Potenzialrechner-->
       <div onload="berechnen()">
         <div>
-          <h2>Finanzen - Potenzial - Rechner</h2>
+          <h2>Zinseszinsrechner</h2>
           <div>
             <div>
-                <div>
-                <div class="content">Berechne dein finanzielles Potenzial bei einer Rendite von 7%.</div>
-                <label for="start">Startbetrag</label>
+              <div>
+              <div class="content">Berechne das Zinspotenzial deiner Finanzen bei einer realistischen Rendite von 7%.</div>
+              <form id="zinseszinsForm"><label for="start">Startbetrag</label>
                 <input type="number" id="start" placeholder="Startbetrag" required />
                 <label for="monat">Monatlicher Betrag</label>
                 <input type="number" id="monat" placeholder="Monatlicher Betrag" required />
                 <label for="laufzeit">Laufzeit</label>
                 <input type="number" id="laufzeit" placeholder="Laufzeit" required />
-              </div>
+                <div>
+                  <button id="berechnenButton" type="button">Kapital berechnen</button>
+                </div>
               <table>
                 <tbody>
                     <tr>
@@ -527,9 +532,9 @@
                 </tr>
                 </tbody>
               </table>
-                <div>
-                  <button id="berechnenButton">Kapital berechnen</button>
-                </div>
+              </form>
+              </div>
+              
               
           </div>
       </body>
@@ -555,44 +560,28 @@
         });
         
         function berechnen() {
-            var start = document.getElementById('start').value;
-            var monat = document.getElementById('monat').value;
-            var laufzeit = document.getElementById('laufzeit').value;
-            var spar = 0;
-            
-            
-                var start = parseFloat(start);
-                var monat = parseFloat(monat);
-                var laufzeit = parseFloat(laufzeit);
-                if (!isNaN(start) && !isNaN(monat) && !isNaN(laufzeit)) {
-                    var spar = start + (monat * laufzeit * 12);
-                } else {
-                  input.textContent = 'Invalid input. Please enter a valid number';
-                }
-            
-            var sparTotal = spar.toLocaleString('de-CH');  
-            document.getElementById("spar").innerHTML = sparTotal;
-    
-            var laufzeit = document.getElementById('laufzeit').value;
-            var total = 0;
-            if (laufzeit === 1){
-              var total = Math.round(start + (monat * 12) * 1.07);
-            }
-            else {
-              var total = start + (monat * 12) * 1.07;
-              for (let i = 2; i <= laufzeit; i++) {
-                total = Math.round((total + (monat * 12)) * 1.07);
-            }
-            }
-            var zinsen = total - spar;
-            
-            var totalTotal = total.toLocaleString('de-CH');  
-            document.getElementById("total").innerHTML = totalTotal;
-          
-            var zinsenTotal = zinsen.toLocaleString('de-CH'); 
-            document.getElementById("zinsen").innerHTML = zinsenTotal;
-    
-        }
+    let start = parseFloat(document.getElementById('start').value);
+    let monat = parseFloat(document.getElementById('monat').value);
+    let laufzeit = parseFloat(document.getElementById('laufzeit').value); // EINMAL definiert!
+
+    if (isNaN(start) || isNaN(monat) || isNaN(laufzeit)) {
+        document.getElementById("errorMessage").textContent = "Bitte gültige Zahlen eingeben.";
+        return; // Stoppt die Funktion, wenn falsche Eingaben vorhanden sind
+    }
+
+    let spar = start + (monat * laufzeit * 12);
+    let total = start + (monat * 12) * 1.07;
+
+    for (let i = 2; i <= laufzeit; i++) {
+        total = Math.round((total + (monat * 12)) * 1.07);
+    }
+
+    let zinsen = total - spar;
+
+    document.getElementById("spar").textContent = spar.toLocaleString('de-CH');
+    document.getElementById("total").textContent = total.toLocaleString('de-CH');
+    document.getElementById("zinsen").textContent = zinsen.toLocaleString('de-CH');
+}
         
         </script>
         </div>

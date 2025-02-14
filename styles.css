@@ -184,6 +184,7 @@ header a span {
 
 .content {
     font-size: clamp(1rem,3vw,1.75rem);
+   
 }
 
 .accordion-body {
@@ -324,6 +325,7 @@ hr {
         justify-content: center;
         align-items: center;
         display: flex;
+        margin-top: 100px;
     }
 
     .about-me {
@@ -378,8 +380,9 @@ hr {
 
     form {
         max-width: 400px;
-        margin: 20px auto;
+        margin: 40px auto;
         padding: 20px;
+        margin-top: 100px;
         background: #ffffff;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
@@ -405,8 +408,9 @@ hr {
     button {
         width: 100%;
         padding: 10px;
+        margin-bottom: 10px;
         font-size: 16px;
-        background: #3498db;
+        background: #32CD32;
         color: white;
         border: none;
         border-radius: 4px;
@@ -415,14 +419,14 @@ hr {
     }
     
     button:hover {
-        background: #2980b9;
+        background: #219b21;
     }
     
     p#result {
         text-align: center;
-        font-size: 18px;
+        font-size: 24px;
         font-weight: bold;
-        color: #27ae60;
+      
     }
     
     /* Responsive Design */
@@ -435,4 +439,17 @@ hr {
             font-size: 14px;
             padding: 8px;
         }
+    }
+
+    .amount {
+        font-weight: bold;
+    }
+
+    tr {
+        font-weight: bold;
+    }
+
+    td {
+        padding-bottom: 5px;
+        padding-right: 50px;
     }
