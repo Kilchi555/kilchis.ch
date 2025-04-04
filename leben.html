@@ -112,7 +112,7 @@
       <div class="hero">
           <p>Warum <SPAN>Investieren</SPAN>?</p>
       </div>
-      <div class="contentOutside">Ein Grund hast du oben gesehen, der <b>Zinseszins-Effekt!</b> Der lässt dein Geld für dich arbeiten, ohne dass du arbeiten musst. Ein weiterer Grund ist der <b>Wertverlust (Inflation)</b>, der dein hart erarbeitetes Geld buchstäblich schrumpfen lässt, wenn du nicht investierst.</div>
+      <div class="contentOutside">Ein Grund hast du oben gesehen, der <b>Zinseszins-Effekt!</b> Ein weiterer Grund ist der <b>Wertverlust (Inflation), den dein hart erarbeitetes Geld hat, wenn du nicht investierst.</b></div>
     </div>
 
       <!-- Space-->
@@ -120,26 +120,22 @@
       </div>
       <!-- Space Ende-->
 
-    <!-- Inflationsrechner-->
-    <div>
-      <h2>Inflationsrechner Schweiz</h2>
-      <div class="content">Berechne den heutigen Wert eines Betrages, den du damals durch harte Arbeit und wertvolle Zeit erarbeitet hast, basierend auf der <b>durchschnittlichen jährlichen Inflation von 1%.</b></div>
-      <form id="inflationForm">
-          <label for="yearStart">Jahr in dem das Geld verdient wurde (ab Jahr 1900):</label>
-          <input type="number" id="yearStart" name="yearStart" min="1900" required>
-          <br><br>
-          <label for="amount">Betrag in CHF:</label>
-          <input type="number" id="amount" name="amount" step="0.01" required>
-          <br><br>
-          <label for="yearEnd">Jahr in dem das Geld ausgegeben wird:</label>
-          <input type="number" id="yearEnd" name="yearEnd" min="yearStart" required>
-          <br><br>
-          <button type="button" id="calculateButton">Berechnen</button>
-      </form>
-  
-      <p id="result"></p>
-    </div>
- <!-- Inflationsrechner Ende-->
+      <!-- Inflationsrechner-->
+      <div>
+        <h2>Inflationsrechner Schweiz</h2>
+        <div class="contentOutside">Berechne den heutigen Wert deines Geldes, den du damals durch harte Arbeit und wertvolle Zeit erarbeitet hast, basierend auf der <b>durchschnittlichen jährlichen Inflation von 1%.</b></div>
+        <form id="inflationForm">
+            <label for="year">Jahr (ab Jahr 1900):</label>
+            <input type="number" id="year" name="year" min="1900" max="2024" required>
+            <br><br>
+            <label for="amount">Betrag in CHF:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+            <br><br>
+            <button type="submit">Berechnen</button>
+        </form>
+        <p id="result"></p>
+      </div>
+      <!-- Inflationsrechner Ende-->
 
        <!-- CallToAction -->
        <section class="hero">
@@ -531,21 +527,45 @@
       <h2>Inflationsrechner Schweiz</h2>
       <div class="content">Berechne den heutigen Wert eines Betrages, den du damals durch harte Arbeit und wertvolle Zeit erarbeitet hast, basierend auf der <b>durchschnittlichen jährlichen Inflation von 1%.</b></div>
       <form id="inflationForm">
-          <label for="yearStart">Jahr in dem das Geld verdient wurde (ab Jahr 1900):</label>
-          <input type="number" id="yearStart" name="yearStart" min="1900" required>
+          <label for="year">Jahr (ab Jahr 1900):</label>
+          <input type="number" id="year" name="year" min="1900" max="2024" required>
           <br><br>
           <label for="amount">Betrag in CHF:</label>
           <input type="number" id="amount" name="amount" step="0.01" required>
           <br><br>
-          <label for="yearEnd">Jahr in dem das Geld ausgegeben wird:</label>
-          <input type="number" id="yearEnd" name="yearEnd" min="yearStart" required>
-          <br><br>
-          <button type="button" id="calculateButton">Berechnen</button>
+          <button type="submit">Berechnen</button>
       </form>
   
       <p id="result"></p>
     </div>
- <!-- Inflationsrechner Ende-->
+      <script>
+          document.getElementById('inflationForm').addEventListener('submit', function(event) {
+              event.preventDefault();
+  
+              // Eingabewerte
+              const startYear = parseInt(document.getElementById('year').value);
+              const amount = parseFloat(document.getElementById('amount').value);
+              const currentYear = new Date().getFullYear();
+              const inflationRate = 0.01; // Durchschnittliche Inflationsrate von 1 %
+  
+              // Berechnung der Inflationsjahre
+              const years = currentYear - startYear;
+  
+              if (years < 0) {
+                  document.getElementById('result').textContent = 
+                      "Das Jahr liegt in der Zukunft. Bitte wähle ein gültiges Jahr.";
+                  return;
+              }
+  
+              // Berechnung des inflationsbereinigten Betrags
+              const adjustedAmount = amount * Math.pow((1 - inflationRate), years);
+  
+              // Ergebnis anzeigen
+              document.getElementById('result').textContent = 
+                  `Der Betrag von CHF ${amount.toFixed(2)} im Jahr ${startYear} hat heute einen Wert von CHF ${adjustedAmount.toFixed(2)}.`;
+          });
+      </script>
+      <!-- Inflationsrechner Ende-->
 
       <!-- CallToAction -->
       <div class="budget-button">
@@ -658,31 +678,6 @@
         </div>
       </div>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById('calculateButton').addEventListener('click', function () {
-          // Eingabewerte
-          const startYear = parseInt(document.getElementById('yearStart').value);
-          const amount = parseFloat(document.getElementById('amount').value);
-          const endYear = parseInt(document.getElementById('yearEnd').value);
-          const inflationRate = 0.01;
-    
-          const years = endYear - startYear;
-    
-          if (years < 0) {
-            document.getElementById('result').textContent =
-              "Das Jahr in dem das Geld ausgegeben wird, liegt vor dem Jahr in dem es verdient wurde.";
-            return;
-          }
-    
-          const adjustedAmount = amount * Math.pow((1 - inflationRate), years);
-    
-          document.getElementById('result').textContent =
-            `Der Betrag von CHF ${amount.toFixed(2)} im Jahr ${startYear} hat im Jahr ${endYear} einen Wert von CHF ${adjustedAmount.toFixed(2)}.`;
-        });
-      });
-    </script>
   </body>
     <!--über mich Ende-->
 
@@ -730,10 +725,4 @@ function remove() {
 
 </script>
 <!--Script Accordion Ende--> 
-
-<!-- Calendly Badge-Widget Beginn -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/pascal_kilchenmann/kostenloses-kennenlern-gespraech', text: 'Termin buchen', color: '#0069ff', textColor: '#ffffff' }); }</script>
-<!-- Calendly Badge-Widget Ende -->
  </html>
