@@ -10,9 +10,12 @@ body {
 h1 {
     font-size: clamp(1.5rem,6vw,4rem);
     padding: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
     color:white;
     background-color: #32CD32;
     border-radius: 20px;
+    text-align: center;
 }
 
 h1:hover {
@@ -63,7 +66,7 @@ color: #32CD32;
     position: relative;
     text-align: center;
     align-items: center;
-    padding: 5%;
+    padding-top: 5%;
     border-radius: 20px;
 }
 
@@ -72,10 +75,9 @@ color: #32CD32;
     color: black;
     font-weight: 900;
     z-index: 2;
-    padding-bottom: 5%;
 }
 
-.hero p span {
+ p span {
     color: #32CD32;
     z-index: 2;
 }
@@ -184,6 +186,14 @@ header a span {
 
 .content {
     font-size: clamp(1rem,3vw,1.75rem);
+   
+}
+
+.contentOutside {
+    font-size: clamp(1rem,3vw,1.75rem);
+    text-align: center;
+    padding-left: 7%;
+    padding-right: 7%;
    
 }
 
@@ -380,9 +390,9 @@ hr {
 
     form {
         max-width: 400px;
-        margin: 40px auto;
+        margin: 0 auto;
         padding: 20px;
-        margin-top: 100px;
+        margin-top: 50px;
         background: #ffffff;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
@@ -452,4 +462,8 @@ hr {
     td {
         padding-bottom: 5px;
         padding-right: 50px;
+    }
+
+    .space {
+        height: 10vh;
     }

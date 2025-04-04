@@ -56,19 +56,94 @@
     </div>
     </header>
     <!-- NavBar -->
+    <div>
+      <div class="hero">
+          <p>JE <SPAN>FRÜHER</SPAN>, DESTO <SPAN>BESSER</SPAN>:</p>
+    </div>
+      <h1>Altersvorsorge mit Budget einplanen und investieren</h1>
+      </div>
+    <!-- Potenzialrechner-->
+    <div onload="berechnen()">
+      <div>
+        <h2>Zinseszinsrechner</h2>
+        <div>
+          <div>
+            <div>
+            <div class="contentOutside">Berechne dein Sparpotenzial bei einer realistischen Rendite deiner Investition von 7%.</div>
+            <form id="zinseszinsForm"><label for="start">Startbetrag</label>
+              <input type="number" id="start" placeholder="Startbetrag" required />
+              <label for="monat">Monatlicher Betrag</label>
+              <input type="number" id="monat" placeholder="Monatlicher Betrag" required />
+              <label for="laufzeit">Laufzeit</label>
+              <input type="number" id="laufzeit" placeholder="Laufzeit" required />
+              <div>
+                <button id="berechnenButton" type="button">Kapital berechnen</button>
+              </div>
+            <table>
+              <tbody>
+                  <tr>
+                      <td>Erspartes Kapital</td>
+                      <td class="number"> CHF <span id="spar"></span>.-</td>
+                  </tr>
+                  <tr>
+                    <td>Angehäufte Zinsen</td>
+                    <td class="number">CHF <span id="zinsen"></span>.-</td>
+                </tr>
+                <tr>
+                  <td>Totales Kapital</td>
+                  <td class="number">CHF <span id="total"></span>.-</td>
+              </tr>
+              </tbody>
+            </table>
+            </form>
+            </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    <!-- Potenzialrechner Ende-->
 
-    <!-- CallToAction -->
-    <section class="hero">
+    <!-- Space-->
+    <div class="space">
+    </div>
+    <!-- Space Ende-->
+
+    <div>
+      <div class="hero">
+          <p>Warum <SPAN>Investieren</SPAN>?</p>
+      </div>
+      <div class="contentOutside">Ein Grund hast du oben gesehen, der <b>Zinseszins-Effekt!</b> Ein weiterer Grund ist der <b>Wertverlust (Inflation), den dein hart erarbeitetes Geld hat, wenn du nicht investierst.</b></div>
+    </div>
+
+      <!-- Space-->
+      <div class="space">
+      </div>
+      <!-- Space Ende-->
+
+      <!-- Inflationsrechner-->
+      <div>
+        <h2>Inflationsrechner Schweiz</h2>
+        <div class="contentOutside">Berechne den heutigen Wert deines Geldes, den du damals durch harte Arbeit und wertvolle Zeit erarbeitet hast, basierend auf der <b>durchschnittlichen jährlichen Inflation von 1%.</b></div>
+        <form id="inflationForm">
+            <label for="year">Jahr (ab Jahr 1900):</label>
+            <input type="number" id="year" name="year" min="1900" max="2024" required>
+            <br><br>
+            <label for="amount">Betrag in CHF:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+            <br><br>
+            <button type="submit">Berechnen</button>
+        </form>
+        <p id="result"></p>
+      </div>
+      <!-- Inflationsrechner Ende-->
+
+       <!-- CallToAction -->
+       <section class="hero">
         <div class="center">
-          <p> MACH <span>HEUTE</span> <br>DEN <SPAN>ERSTEN SCHRITT </SPAN>ZU DEINER</p>
-          <a href="#finanziellefreiheit">
-          <h1>FINANZIELLEN FREIHEIT</h1></div>
-          </a>
+          <p> MACH <span>HEUTE</span> <br>DEN <SPAN>ERSTEN SCHRITT </SPAN>ZU DEINER
+          <SPAN>FINANZIELLEN FREIHEIT</SPAN></p>
         </div>
     </section>
-    <div class="budget-button">
-      <a class="budgetplanung" class="button" href="https://www.dropbox.com/scl/fo/x9ufqofd18bjiajf71wh9/ABPrSPkW7DgbgLzJEwK8u8M?rlkey=2y3r16ql10k05wmahi89it88q&st=91mk00kh&dl=0">Jetzt Budgetplan kostenlos herunterladen</a>
-    </div>
     <!-- CallToAction -->
 
     <!-- FinanzielleFreiheit -->
@@ -462,7 +537,7 @@
       </form>
   
       <p id="result"></p>
-  
+    </div>
       <script>
           document.getElementById('inflationForm').addEventListener('submit', function(event) {
               event.preventDefault();
@@ -490,23 +565,25 @@
                   `Der Betrag von CHF ${amount.toFixed(2)} im Jahr ${startYear} hat heute einen Wert von CHF ${adjustedAmount.toFixed(2)}.`;
           });
       </script>
-      </div>
       <!-- Inflationsrechner Ende-->
 
+      <!-- CallToAction -->
       <div class="budget-button">
         <a class="budgetplanung" class="button" href="https://subscribepage.io/2jMDM9">Zu den Finanzkursen</a>
       </div>
       <div>
         <img class="icon" src="arrow.svg" alt="inflation berechnen">
      </div>
-      <!-- Potenzialrechner-->
+       <!-- CallToAction Ende -->
+
+      <!-- Potenzialrechner -->
       <div onload="berechnen()">
         <div>
           <h2>Zinseszinsrechner</h2>
           <div>
             <div>
               <div>
-              <div class="content">Berechne das Zinspotenzial deiner Finanzen bei einer realistischen Rendite von 7%.</div>
+              <div class="content">Berechne dein Sparpotenzial bei einer realistischen Rendite von 7%.</div>
               <form id="zinseszinsForm"><label for="start">Startbetrag</label>
                 <input type="number" id="start" placeholder="Startbetrag" required />
                 <label for="monat">Monatlicher Betrag</label>
@@ -534,10 +611,10 @@
               </table>
               </form>
               </div>
-              
-              
+              </div>
+            </div> 
           </div>
-      </body>
+      
       <script>
         document.getElementById('berechnenButton').addEventListener('click', function() {
             berechnen();
@@ -582,10 +659,8 @@
     document.getElementById("total").textContent = total.toLocaleString('de-CH');
     document.getElementById("zinsen").textContent = zinsen.toLocaleString('de-CH');
 }
-        
-        </script>
-        </div>
-        <!-- Potenzialrechner Ende-->
+    </script>
+    <!-- Potenzialrechner Ende-->
     
     <!--über mich-->
     <div class="container">
@@ -601,10 +676,10 @@
           <p>Diese Art sein Geld arbeiten zu lassen, ist einerseits einfach, wenn man es mal verstanden hat und andererseits ist es sicher, jedoch braucht es auch hier ein gewisses Verständnis dafür, um die grösste Gefahr zu eliminieren und das ist der Faktor Mensch. Unsere Emotionen sind bei dieser Art zu investieren das grösste Problem. Denn mehrere vergangene Jahrhundert zeigen auf, dass diversifiziert Firmenanteile kaufen ein sicheres Geschäft ist, wenn man bestimmmte Grundsätze beachtet und die Gefühle, sobald der Markt steigt oder sinkt, aussen vor lässt. Eine weitere Voraussetzung ist jedoch, dass man die persönlichen Finanzen im Griff hat, denn erst dann macht es Sinn zu investieren und sein Geld für sich arbeiten zu lassen.</p>
           <p>Nach diesem Prinzip sind auch meine Kurse aufgebaut. Man beginnt mit einem persönlichen Budgetplan, wendet ihn an, optimiert ihn und automatisiert anschliessend den grossen Teil seiner Finanzen inklusive dem Investieren in ETF's. So kann dein Geld wachsen, ohne dass du dich zu sehr darum kümmern musst. Also hol dir meine Kurse und investiere ein wenig Geld in Know-How, denn der Return on Investment ist unbezahlbar. Viel Spass!</p>
         </div>
-        
       </div>
     </div>
-    <!--über mich-->
+  </body>
+    <!--über mich Ende-->
 
     <!--Footer-->
     <footer>
@@ -625,14 +700,9 @@
         </a>
       </div>
     </footer>
-
-  
      <!--Footer-->
 
-     
-</body>
- 
-
+    <!--Script Accordion--> 
 <script>
 
 const accordion = document.getElementsByClassName('container');
@@ -654,7 +724,5 @@ function remove() {
 }
 
 </script>
-
-
-
+<!--Script Accordion Ende--> 
  </html>
